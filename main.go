@@ -3,13 +3,19 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"os"
 	"regexp"
 
-	"github.com/spf13/cobra"
-	"github.com/spf13/viper"
+	"github.com/jessevdk/go-flags"
 )
 
+var version = "0.0.1-dev"
 var content = "User-agent: *\nDisallow: /\n"
+
+var opts struct {
+	Listen  string `long:"listen" description:"address to listen on" default:"0.0.0.0:8080" env:"ROBOTS_DISALLOW_LISTEN"`
+	Version bool   `long:"version" short:"v" description:"show version number"`
+}
 
 type Handler struct {
 	PathPattern  *regexp.Regexp
@@ -26,24 +32,21 @@ func (h *Handler) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 }
 
 func main() {
-	var cmdServe = &cobra.Command{
-		Use:   "serve",
-		Short: "Start serving robots.txt content",
-		Long:  "Starts a HTTP server serving content of a robots.txt file disallowing all robots.",
-		Run: func(cmd *cobra.Command, args []string) {
-			h := &Handler{}
-			fmt.Println("Listening on " + viper.GetString("listen") + "...")
-			panic(http.ListenAndServe(viper.GetString("listen"), h))
-		},
+	parser := flags.NewParser(&opts, flags.Default)
+	parser.Name = "robots-disallow"
+	_, err := parser.Parse()
+	if err != nil {
+		if e2, ok := err.(*flags.Error); ok && e2.Type == flags.ErrHelp {
+			os.Exit(0)
+		}
+		os.Exit(1)
 	}
 
-	viper.SetEnvPrefix("ROBOTS_DISALLOW")
-	viper.AutomaticEnv()
-
-	cmdServe.Flags().String("listen", "0.0.0.0:8080", "address to listen on [$ROBOTS_DISALLOW_LISTEN]")
-	viper.BindPFlag("listen", cmdServe.Flags().Lookup("listen"))
-
-	var rootCmd = &cobra.Command{Use: "robots-disallow"}
-	rootCmd.AddCommand(cmdServe)
-	rootCmd.Execute()
+	if opts.Version {
+		fmt.Println(version)
+	} else {
+		h := &Handler{}
+		fmt.Println("Listening on " + opts.Listen + "...")
+		panic(http.ListenAndServe(opts.Listen, h))
+	}
 }

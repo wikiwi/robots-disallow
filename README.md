@@ -2,12 +2,18 @@
 robots-disallow implements a http server serving content of a robots.txt file disallowing all robots.
 
 ## Usage
-    robots-disallow serve [flags]
+    Usage:
+      robots-disallow [OPTIONS]
 
-    Flags:
-          --listen string         address to listen on [$ROBOTS_DISALLOW_LISTEN] (default "0.0.0.0:8080")
+    Application Options:
+          --listen=  address to listen on (default: 0.0.0.0:8080) [$ROBOTS_DISALLOW_LISTEN]
+      -v, --version  show version number
+
+    Help Options:
+      -h, --help     Show this help message
+
 ## Example
-    docker run -p 8080:8080 wikiwi/robots-disallow serve
+    docker run -p 8080:8080 wikiwi/robots-disallow
 
 ## Output
     curl localhost:8080
