@@ -1,6 +1,8 @@
 # robots-disallow
 robots-disallow implements a http server serving content of a robots.txt file disallowing all robots.
 
+[![Build Status](https://travis-ci.org/wikiwi/robots-disallow.svg?branch=travis)](https://travis-ci.org/wikiwi/robots-disallow)
+
 ## Usage
     Usage:
       robots-disallow [OPTIONS]
