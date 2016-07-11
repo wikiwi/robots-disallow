@@ -7,6 +7,7 @@ import (
 	"os"
 	"strings"
 	"testing"
+	"time"
 )
 
 func getFreePort() string {
@@ -24,6 +25,9 @@ func TestServe(t *testing.T) {
 	addr := "localhost:" + getFreePort()
 	os.Args = []string{"robots-disallow", "--listen", addr}
 	go runServer()
+
+	time.Sleep(time.Second)
+
 	resp, err := http.Get("http://" + addr)
 	if err != nil {
 		t.Fatal(err)
