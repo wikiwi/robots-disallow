@@ -9,7 +9,7 @@ import (
 	"github.com/jessevdk/go-flags"
 )
 
-var version = "0.0.1-dev"
+var version = "0.1.0"
 var content = "User-agent: *\nDisallow: /\n"
 
 var opts struct {
