@@ -17,14 +17,14 @@ var opts struct {
 	Version bool   `long:"version" short:"v" description:"show version number"`
 }
 
-type Handler struct {
+type handler struct {
 	PathPattern  *regexp.Regexp
 	MetaImport   string
 	RedirectName string
 	RedirectTo   string
 }
 
-func (h *Handler) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
+func (h *handler) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 	_, err := rw.Write([]byte(content))
 	if err != nil {
 		http.Error(rw, err.Error(), http.StatusInternalServerError)
@@ -45,7 +45,7 @@ func main() {
 	if opts.Version {
 		fmt.Println(version)
 	} else {
-		h := &Handler{}
+		h := &handler{}
 		fmt.Println("Listening on " + opts.Listen + "...")
 		panic(http.ListenAndServe(opts.Listen, h))
 	}
