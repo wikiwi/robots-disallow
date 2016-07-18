@@ -1,7 +1,16 @@
 # robots-disallow
 robots-disallow implements a http server serving content of a robots.txt file disallowing all robots.
 
-[![Build Status](https://travis-ci.org/wikiwi/robots-disallow.svg?branch=travis)](https://travis-ci.org/wikiwi/robots-disallow) [![Coverage Status](https://coveralls.io/repos/github/wikiwi/robots-disallow/badge.svg?branch=master)](https://coveralls.io/github/wikiwi/robots-disallow?branch=master) [![Code Climate](https://codeclimate.com/github/wikiwi/robots-disallow/badges/gpa.svg)](https://codeclimate.com/github/wikiwi/robots-disallow) [![Docker Hub](https://img.shields.io/docker/pulls/wikiwi/robots-disallow.svg)](https://hub.docker.com/r/wikiwi/robots-disallow)
+[![Build Status Widget]][Build Status] [![Coverage Status Widget]][Coverage Status] [![Code Climate Widget]][Code Climate] [![Docker Hub Widget]][Docker Hub]
+
+[Build Status]: https://travis-ci.org/wikiwi/robots-disallow
+[Build Status Widget]: https://travis-ci.org/wikiwi/robots-disallow.svg?branch=master
+[Coverage Status]: https://coveralls.io/github/wikiwi/robots-disallow?branch=master
+[Coverage Status Widget]: https://coveralls.io/repos/github/wikiwi/robots-disallow/badge.svg?branch=master
+[Code Climate]: https://codeclimate.com/github/wikiwi/robots-disallow
+[Code Climate Widget]: https://codeclimate.com/github/wikiwi/robots-disallow/badges/gpa.svg
+[Docker Hub]: https://hub.docker.com/r/wikiwi/robots-disallow
+[Docker Hub Widget]: https://img.shields.io/docker/pulls/wikiwi/robots-disallow.svg
 
 ## Usage
     Usage:
