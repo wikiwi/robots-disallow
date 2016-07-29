@@ -1,7 +1,7 @@
 # robots-disallow
 robots-disallow implements a http server serving content of a robots.txt file disallowing all robots.
 
-[![Build Status Widget]][Build Status] [![Coverage Status Widget]][Coverage Status] [![Code Climate Widget]][Code Climate] [![Docker Hub Widget]][Docker Hub]
+[![Build Status Widget]][Build Status] [![Coverage Status Widget]][Coverage Status] [![Code Climate Widget]][Code Climate] [![MicroBadger Version Widget]][MicroBadger URL] [![MicroBadger Image Widget]][MicroBadger URL]
 
 [Build Status]: https://travis-ci.org/wikiwi/robots-disallow
 [Build Status Widget]: https://travis-ci.org/wikiwi/robots-disallow.svg?branch=master
@@ -9,8 +9,10 @@ robots-disallow implements a http server serving content of a robots.txt file di
 [Coverage Status Widget]: https://coveralls.io/repos/github/wikiwi/robots-disallow/badge.svg?branch=master
 [Code Climate]: https://codeclimate.com/github/wikiwi/robots-disallow
 [Code Climate Widget]: https://codeclimate.com/github/wikiwi/robots-disallow/badges/gpa.svg
-[Docker Hub]: https://hub.docker.com/r/wikiwi/robots-disallow
-[Docker Hub Widget]: https://img.shields.io/docker/pulls/wikiwi/robots-disallow.svg
+[MicroBadger URL]: http://microbadger.com/#/images/wikiwi/robots-disallow
+[MicroBadger Version Widget]: https://images.microbadger.com/badges/version/wikiwi/robots-disallow.svg
+[MicroBadger Image Widget]: https://images.microbadger.com/badges/image/wikiwi/robots-disallow.svg
+
 
 ## Usage
     Usage:
